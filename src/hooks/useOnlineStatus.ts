@@ -1,0 +1,17 @@
+const useEffect = __vite__cjsImport0_react["useEffect"]; const useState = __vite__cjsImport0_react["useState"];import __vite__cjsImport0_react from "/node_modules/.vite/deps/react.js?v=f4bb9b4f";
+export function useOnlineStatus() {
+	const [isOnline, setIsOnline] = useState(typeof navigator !== "undefined" ? navigator.onLine : true);
+	useEffect(() => {
+		const handleOnline = () => setIsOnline(true);
+		const handleOffline = () => setIsOnline(false);
+		window.addEventListener("online", handleOnline);
+		window.addEventListener("offline", handleOffline);
+		return () => {
+			window.removeEventListener("online", handleOnline);
+			window.removeEventListener("offline", handleOffline);
+		};
+	}, []);
+	return isOnline;
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJtYXBwaW5ncyI6IkFBQUEsU0FBUyxXQUFXLGdCQUFnQjtBQUVwQyxPQUFPLFNBQVMsa0JBQWtCO0NBQ2hDLE1BQU0sQ0FBQyxVQUFVLGVBQWUsU0FDOUIsT0FBTyxjQUFjLGNBQWMsVUFBVSxTQUFTLElBQ3hEO0NBRUEsZ0JBQWdCO0VBQ2QsTUFBTSxxQkFBcUIsWUFBWSxJQUFJO0VBQzNDLE1BQU0sc0JBQXNCLFlBQVksS0FBSztFQUU3QyxPQUFPLGlCQUFpQixVQUFVLFlBQVk7RUFDOUMsT0FBTyxpQkFBaUIsV0FBVyxhQUFhO0VBRWhELGFBQWE7R0FDWCxPQUFPLG9CQUFvQixVQUFVLFlBQVk7R0FDakQsT0FBTyxvQkFBb0IsV0FBVyxhQUFhO0VBQ3JEO0NBQ0YsR0FBRyxDQUFDLENBQUM7Q0FFTCxPQUFPO0FBQ1QiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsidXNlT25saW5lU3RhdHVzLnRzIl0sInZlcnNpb24iOjMsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZUVmZmVjdCwgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCc7XG5cbmV4cG9ydCBmdW5jdGlvbiB1c2VPbmxpbmVTdGF0dXMoKSB7XG4gIGNvbnN0IFtpc09ubGluZSwgc2V0SXNPbmxpbmVdID0gdXNlU3RhdGUoXG4gICAgdHlwZW9mIG5hdmlnYXRvciAhPT0gJ3VuZGVmaW5lZCcgPyBuYXZpZ2F0b3Iub25MaW5lIDogdHJ1ZVxuICApO1xuXG4gIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgY29uc3QgaGFuZGxlT25saW5lID0gKCkgPT4gc2V0SXNPbmxpbmUodHJ1ZSk7XG4gICAgY29uc3QgaGFuZGxlT2ZmbGluZSA9ICgpID0+IHNldElzT25saW5lKGZhbHNlKTtcblxuICAgIHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCdvbmxpbmUnLCBoYW5kbGVPbmxpbmUpO1xuICAgIHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCdvZmZsaW5lJywgaGFuZGxlT2ZmbGluZSk7XG5cbiAgICByZXR1cm4gKCkgPT4ge1xuICAgICAgd2luZG93LnJlbW92ZUV2ZW50TGlzdGVuZXIoJ29ubGluZScsIGhhbmRsZU9ubGluZSk7XG4gICAgICB3aW5kb3cucmVtb3ZlRXZlbnRMaXN0ZW5lcignb2ZmbGluZScsIGhhbmRsZU9mZmxpbmUpO1xuICAgIH07XG4gIH0sIFtdKTtcblxuICByZXR1cm4gaXNPbmxpbmU7XG59XG4iXX0=
